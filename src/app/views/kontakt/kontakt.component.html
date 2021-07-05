@@ -1,0 +1,75 @@
+
+
+<div class="d-flex justify-content-center align-content-center mt-5" >
+            
+<form class="col-5" #form="ngForm" (ngSubmit)="sub(form)"  >
+     
+    <div class="row mb-4">
+      <div class="col">
+        <div class="form-outline">
+          
+          <input type="text" id="form6Example1" class="form-control border"  name="namn"  ngModel #namn="ngModel" (change)="log(namn)"  required/>
+          
+          <label class="form-label" for="form6Example1">Namn</label>
+          <div class="text-danger" *ngIf="namn.invalid && (namn.touched)">
+              <small>Du måste skriva in ett namn</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    
+  
+    <div class="form-outline mb-4">
+      <input type="email" id="form6Example8" class="form-control border"  name="email" ngModel #email="ngModel" (change)="log(email)" pattern="\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}" required/>
+      <label class="form-label" for="form6Example8">Email</label>
+      <div class="text-danger" *ngIf="email.invalid && email.touched && email.errors">
+        <small *ngIf="email.errors.required">Du måste skriva in en mailadress</small>
+        <small *ngIf="email.errors.pattern">Du måste vara en giltig mailadress</small>
+    </div>
+    </div>
+  
+    <div class="form-outline mb-4 ">
+      <input id="form6Example5" class="form-control border"  name="amne" ngModel #amne="ngModel" (change)="log(amne)" minlength="4"  required/>
+      <label class="form-label" for="form6Example5">Ämne</label>
+      <div class="text-danger" *ngIf="amne.invalid && amne.touched && amne.errors">
+        <small *ngIf="amne.errors.required">Du måste ange ett ämne</small>
+        <small *ngIf="amne.errors.minlength">Ämnet måste innehålla minst 4 tecken</small>
+      </div>
+      
+    </div>
+  
+  
+    <!-- Message input -->
+    <div class="form-outline mb-4">
+      <textarea class="form-control border" id="form6Example7" rows="4"  name="meddelande" ngModel #meddelande="ngModel" (change)="log(meddelande)" minlength="5" required></textarea>
+      <label class="form-label" for="form6Example7">Information</label>
+      <div class="text-danger" *ngIf="!meddelande.valid && meddelande.touched && meddelande.errors">
+        <small *ngIf="meddelande.errors.required">
+          Du måste ange ett meddelande</small>
+        <small *ngIf="meddelande.errors.minlength">Meddelandet måste innehålla minst 5 tecken</small>
+      </div>
+    </div>
+  
+  
+    
+
+
+    <!-- Submit button -->
+    <div>
+        <button type="submit" [disabled]="form.form.invalid "class="btn btn-bluee btn-block mb-1 mx-auto">Skicka</button>
+        <div class="text-info  card bg-light" *ngIf="!form.form.invalid">
+            <small>Tack för att du kontakar oss </small>
+            
+            
+            
+        </div>
+    </div>
+</form>
+
+
+
+
+</div>
+
+
