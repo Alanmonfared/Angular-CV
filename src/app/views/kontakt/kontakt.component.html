@@ -57,12 +57,10 @@
 
     <!-- Submit button -->
     <div>
-        <button type="submit" [disabled]="form.form.invalid "class="btn btn-bluee btn-block mb-1 mx-auto">Skicka</button>
+        <button type="submit" [disabled]="form.form.invalid" class="btn btn-bluee btn-block mb-1 mx-auto">Skicka</button>
         <div class="text-info  card bg-light" *ngIf="!form.form.invalid">
             <small>Tack för att du kontakar oss </small>
-            
-            
-            
+           
         </div>
     </div>
 </form>
